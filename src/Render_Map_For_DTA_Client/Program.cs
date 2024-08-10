@@ -59,7 +59,9 @@ namespace Render_Map_For_DTA_Client
                     var maxPlayer = mapFile.GetIntValue("Header", "NumberStartingPoints", 2);
                     MultiMapsOrder.Add(maxPlayer);
 
-                    mapSection.AddKey("Author", titleSplit[titleSplit.Length - 2]);
+                    
+
+                    mapSection.AddKey("Author", mapFile.GetStringValue("Basic", "Author", titleSplit[titleSplit.Length - 2]));
                     mapSection.AddKey("Size", mapFile.GetStringValue("Map", "Size", "0,0,50,50"));
                     mapSection.AddKey("LocalSize", mapFile.GetStringValue("Map", "LocalSize", "0,0,50,50"));
                     mapSection.AddKey("Description", $"[{maxPlayer}]{mapName}");
